@@ -22,5 +22,13 @@ public class PasajeroChange extends EventChange {
         apply((PrioridadPasajeroModificada event) -> {
             pasajero.prioridad = event.getPrioridad();
         });
+
+        apply((CuentaPasajeroVinculada event) -> {
+            pasajero.cuentas.add(new Cuenta(event.getCuentaId(), event.getNombreUsuario()));
+        });
+
+        apply((CuentaPasajeroDesvinculada event) -> {
+            Cuenta cuenta = pasajero.getCuentaPorId(event.getCuentaID()).orElseThrow(() -> new IllegalArgumentException("No existe la cuenta del cliente"));
+        });
     }
 }

@@ -8,6 +8,7 @@ import co.com.sofka.domain.viaje.Viaje;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 public class Pasajero extends AggregateEvent<PasajeroID> {
@@ -17,6 +18,7 @@ public class Pasajero extends AggregateEvent<PasajeroID> {
     protected Prioridad prioridad;
 
     protected Set<Viaje> viajes;
+    protected Set<Cuenta> cuentas;
 
     // Creacion
     public Pasajero(PasajeroID pasajeroID, NombrePasajero nombre, EdadPasajero edad, EmailPasajero email) {
@@ -58,7 +60,17 @@ public class Pasajero extends AggregateEvent<PasajeroID> {
         appendChange(new CuentaPasajeroVinculada(cuentaId, nombreUsuario));
     }
 
+    public void desvincularCuenta (CuentaID cuentaID){
+        Objects.requireNonNull(cuentaID);
+        appendChange(new CuentaPasajeroDesvinculada(cuentaID)).apply();
+    }
+
+    public Optional<Cuenta> getCuentaPorId(CuentaID cuentaID) {
+        return this.cuentas.stream().filter((cuenta) -> cuenta.identity().equals(cuentaID)).findFirst();
+    }
+    /*
     public void cambiarContrasena () {
 
     }
+    */
 }

@@ -17,7 +17,7 @@ public class CuentaPasajeroVinculada extends DomainEvent {
         return cuentaId;
     }
 
-    public NombreUsuarioPasajero getNombreusuario() {
+    public NombreUsuarioPasajero getNombreUsuario() {
         return nombreusuario;
     }
 }
