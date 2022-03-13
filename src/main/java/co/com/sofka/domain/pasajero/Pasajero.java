@@ -57,7 +57,7 @@ public class Pasajero extends AggregateEvent<PasajeroID> {
         Objects.requireNonNull(cuentaId);
         Objects.requireNonNull(nombreUsuario);
         // Objects.requireNonNull(contrasena);
-        appendChange(new CuentaPasajeroVinculada(cuentaId, nombreUsuario));
+        appendChange(new CuentaPasajeroVinculada(cuentaId, nombreUsuario)).apply();
     }
 
     public void desvincularCuenta (CuentaID cuentaID){
