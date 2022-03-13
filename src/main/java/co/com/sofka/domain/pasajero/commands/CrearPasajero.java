@@ -7,16 +7,20 @@ public class CrearPasajero extends Command {
     private final NombrePasajero nombre;
     private final EdadPasajero edad;
     private final EmailPasajero email;
-    private final PasajeroID pasajeropID;
+    private final PasajeroID pasajeroID;
 
     public CrearPasajero(PasajeroID pasajeroID, NombrePasajero nombre, EdadPasajero edad, EmailPasajero email) {
-        this.pasajeropID = pasajeroID;
+        this.pasajeroID = pasajeroID;
         this.nombre = nombre;
         this.edad = edad;
         this.email = email;
     }
 
     // Getters
+    public PasajeroID getPasajeropID() {
+        return pasajeroID;
+    }
+
     public EmailPasajero getEmail() {
         return email;
     }
