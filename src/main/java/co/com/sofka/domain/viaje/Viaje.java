@@ -38,14 +38,14 @@ public class Viaje extends AggregateEvent<ViajeID> {
     }
 
     // Metodos
-    public void vincularPasajero (PasajeroID pasajeroID) {
+    public void agregarUsuarioPasajero (PasajeroID pasajeroID) {
         Objects.requireNonNull(pasajeroID);
 
         appendChange(new PasajeroVinculado(pasajeroID)).apply();
     }
 
 
-    public void vincularConductor (ConductorID conductorID) {
+    public void agregarUsuarioConductor (ConductorID conductorID) {
         Objects.requireNonNull(conductorID);
 
         appendChange(new ConductorVinculado(conductorID)).apply();
