@@ -17,7 +17,7 @@ public class CrearPasajero extends Command {
     }
 
     // Getters
-    public PasajeroID getPasajeropID() {
+    public PasajeroID getPasajeroID() {
         return pasajeroID;
     }
 

@@ -18,8 +18,10 @@ import java.util.List;
 public class CrearPasajeroUseCaseTest {
     @Test
     void crearUnUsuario(){
+        PasajeroID pasajeroID = PasajeroID.of("luci01");
+
         CrearPasajero command = new CrearPasajero(
-                new PasajeroID(),
+                pasajeroID,
                 new NombrePasajero("Lucia"),
                 new EdadPasajero(25),
                 new EmailPasajero("lucia@sofka.com.co")

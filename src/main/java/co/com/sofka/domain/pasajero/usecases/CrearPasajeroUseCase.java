@@ -10,10 +10,10 @@ import co.com.sofka.domain.pasajero.commands.CrearPasajero;
 public class CrearPasajeroUseCase extends UseCase<RequestCommand<CrearPasajero>, ResponseEvents> {
     @Override
     public void executeUseCase(RequestCommand<CrearPasajero> input) {
-        var command = input.getCommand();
+        CrearPasajero command = input.getCommand();
 
         Pasajero pasajero = new Pasajero(
-                command.getPasajeropID(),
+                command.getPasajeroID(),
                 command.getNombre(),
                 command.getEdad(),
                 command.getEmail()
